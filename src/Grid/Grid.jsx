@@ -18,7 +18,7 @@ const Grid: Function = React.createClass({
     return (
       <table>
         <tbody>
-          {this.props.grid.map((row) => <Row items={row} />)}
+          {this.props.grid.map((row) => <Row key={this.props.grid.indexOf(row)} items={row} />)}
         </tbody>
       </table>)
   }
