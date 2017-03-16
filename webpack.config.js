@@ -1,6 +1,6 @@
 
 module.exports = {
-  entry: './bundle-entry.js',
+  entry: './bundle-entry.jsx',
   output: {
     filename: 'public/bundle.js'
   },
@@ -8,7 +8,7 @@ module.exports = {
     // TODO: Convert loaders to Webpack 2 syntax.
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -34,7 +34,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.es6']
+    extensions: ['.js', '.es6', '.jsx']
   },
   plugins: [
   ],
