@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 
 import actionTypes from '../../store/action-types.js'
 
+import Row from '../Row/Row.jsx'
+
 const Grid: Function = React.createClass({
 
   componentWillMount() {
@@ -13,8 +15,13 @@ const Grid: Function = React.createClass({
 
   render() {
     console.log('grid rendered')
-    const rows = this.props.grid.length
-    return (<p>Grid has {this.props.grid.length} rows</p>)
+    return (
+      <div>
+        <p>Grid has {this.props.grid.length} rows</p>
+        <table>
+          {this.props.grid.map((row) => <Row contents={row} />)}
+        </table>
+      </div>)
   }
 })
 
@@ -25,7 +32,7 @@ const mapStateToProps = (storeState: Object): Object => ({
 const mapDispatchToProps = (dispatch: Function): Object => ({
   initialiseGrid: () => dispatch({
     type: actionTypes.INITIALISE_GRID,
-    grid: [[1,2], [3,4], [5,6]]
+    grid: [[1,2], [3,4]]
   })
 })
 
