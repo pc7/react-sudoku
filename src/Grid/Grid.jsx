@@ -16,14 +16,11 @@ const Grid: Function = React.createClass({
   render() {
     console.log('grid rendered')
     return (
-      <div>
-        <p>Grid has {this.props.grid.length} rows</p>
-        <table>
-          <tbody>
-            {this.props.grid.map((row) => <Row items={row} />)}
-          </tbody>
-        </table>
-      </div>)
+      <table>
+        <tbody>
+          {this.props.grid.map((row) => <Row items={row} />)}
+        </tbody>
+      </table>)
   }
 })
 
