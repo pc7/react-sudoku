@@ -8,6 +8,7 @@ const Grid: Function = React.createClass({
 
   componentWillMount() {
     this.props.initialiseGrid()
+    console.log('grid will mount')
   },
 
   render() {
