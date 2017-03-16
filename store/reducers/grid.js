@@ -2,12 +2,12 @@
 
 import actionTypes from '../action-types.js'
 
-export default (segmentState: Object={}, action: Object): Object => {
+export default (segmentState: number[] =[], action: Object): number[] => {
 
     switch (action.type) {
 
         case actionTypes.INITIALISE_GRID:
-            return {}
+            return action.grid
 
         default:
             return segmentState

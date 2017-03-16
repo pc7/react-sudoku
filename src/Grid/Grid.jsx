@@ -1,0 +1,29 @@
+
+import React from 'react'
+import {connect} from 'react-redux'
+
+import actionTypes from '../../store/action-types.js'
+
+const Grid: Function = React.createClass({
+
+  componentWillMount() {
+    this.props.initialiseGrid()
+  },
+
+  render() {
+    return (<p>Grid has {this.props.grid.length} rows</p>)
+  }
+})
+
+const mapStateToProps = (storeState: Object): Object => ({
+  grid: storeState.grid
+})
+
+const mapDispatchToProps = (dispatch: Function): Object => ({
+  initialiseGrid: () => dispatch({
+    type: actionTypes.INITIALISE_GRID,
+    grid: [[1,2], [3,4]]
+  })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid)
