@@ -4,7 +4,8 @@ import React from 'react'
 const App: Function = React.createClass({
 
   componentWillMount() {
-    console.log('App component')
+    store.dispatch({type: 'INITIALISE_GRID'})
+    console.log('App component grid initialised')
   },
 
   render() {
