@@ -10,11 +10,10 @@ const Grid: Function = React.createClass({
 
   componentWillMount() {
     this.props.initialiseGrid()
-    console.log('grid will mount')
   },
 
   render() {
-    console.log('grid rendered')
+
     return (
       <table>
         <tbody>
@@ -31,7 +30,14 @@ const mapStateToProps = (storeState: Object): Object => ({
 const mapDispatchToProps = (dispatch: Function): Object => ({
   initialiseGrid: () => dispatch({
     type: actionTypes.INITIALISE_GRID,
-    grid: [[1,2], [3,4]]
+    grid: [[
+            {actualValue: 5, userValue: null, isHidden: false},
+            {actualValue: 6, userValue: null, isHidden: false}
+           ],
+           [
+            {actualValue: 7, userValue: null, isHidden: false},
+            {actualValue: 8, userValue: null, isHidden: false}
+           ]],
   })
 })
 

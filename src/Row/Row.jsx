@@ -3,7 +3,12 @@ import React from 'react'
 
 const Row = props => (
   <tr>
-    {props.items.map((item: number) => <td key={item}>{item}</td>)}
+    {
+     props.items.map((item: Object) =>
+       <td key={item.actualValue}>
+         {!item.isHidden ? item.actualValue : null}
+       </td>)
+    }
   </tr>
 )
 
