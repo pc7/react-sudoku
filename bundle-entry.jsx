@@ -8,9 +8,11 @@ import {Provider} from 'react-redux'
 
 import grid from './store/reducers/grid.js'
 
+import App from './src/App.jsx'
+
 ReactDOM.render(
   <Provider store={createStore(combineReducers({grid}))}>
-    <p>Content</p>
+    <App />
   </Provider>,
   document.getElementById('react-container')
 )
