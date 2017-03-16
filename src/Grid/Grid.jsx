@@ -12,7 +12,8 @@ const Grid: Function = React.createClass({
   },
 
   render() {
-    return (<p>Grid has {this.props.grid.length} rows</p>)
+    console.log('grid rendered')
+    return (<p>Grid content</p>)
   }
 })
 
