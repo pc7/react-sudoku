@@ -3,7 +3,7 @@ import React from 'react'
 
 const Row = props => (
   <tr>
-    {this.props.items.map((item: number) => <td>{item}</td>)}
+    {props.items.map((item: number) => <td>{item}</td>)}
   </tr>
 )
 
