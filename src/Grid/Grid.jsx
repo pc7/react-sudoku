@@ -14,7 +14,7 @@ const Grid: Function = React.createClass({
   render() {
     console.log('grid rendered')
     const rows = this.props.grid.length
-    return (<p>Grid has {rows} rows</p>)
+    return (<p>Grid has {this.props.grid.length} rows</p>)
   }
 })
 
@@ -25,7 +25,7 @@ const mapStateToProps = (storeState: Object): Object => ({
 const mapDispatchToProps = (dispatch: Function): Object => ({
   initialiseGrid: () => dispatch({
     type: actionTypes.INITIALISE_GRID,
-    grid: [[1,2], [3,4]]
+    grid: [[1,2], [3,4], [5,6]]
   })
 })
 
