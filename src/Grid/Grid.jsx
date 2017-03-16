@@ -19,7 +19,7 @@ const Grid: Function = React.createClass({
       <div>
         <p>Grid has {this.props.grid.length} rows</p>
         <table>
-          {this.props.grid.map((row) => <Row contents={row} />)}
+          {this.props.grid.map((row) => <Row items={row} />)}
         </table>
       </div>)
   }
