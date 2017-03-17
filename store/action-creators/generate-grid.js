@@ -25,6 +25,7 @@ export default (): Object => {
         }
 
         grid = [...grid, row]
+        console.log(grid)
     }
 
     return {
