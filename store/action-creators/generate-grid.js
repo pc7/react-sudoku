@@ -17,10 +17,10 @@ export default (): Object => {
 
         let row = []
 
-        for (let j = 0; j < 9; j++) {
+        for (let i = 0; i < 9; i++) {
 
             let cell = emptyCell()
-            cell.actualValue = j
+            cell.actualValue = i+1
             row = [...row, cell]
         }
 
