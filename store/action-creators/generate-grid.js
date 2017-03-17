@@ -1,30 +1,21 @@
 // @flow
 
 import actionTypes from '../action-types.js'
+import emptyGrid from '../grid-utils/emptyGrid.js'
 
 export default (): Object => {
 
-    let grid = []
+    let grid = emptyGrid(3, 2)
 
-    const emptyCell = () : {actualValue: ?number} => ({
-                       actualValue: null,
-                       userValue: null,
-                       possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
-                       isHidden: false
-                      })
+    for (let i = 0, len = grid.length; i < len; i++) {
 
-    for (let i = 0; i < 9; i++) {
+        let row = grid[i]
 
-        let row = []
+        for (let i = 0, len = row.length; i < len; i++) {
 
-        for (let i = 0; i < 9; i++) {
-
-            let cell = emptyCell()
-            cell.actualValue = i+1
-            row = [...row, cell]
+            // NOTE: placeholder
+            row[i].actualValue = i+1
         }
-
-        grid = [...grid, row]
     }
 
     return {
