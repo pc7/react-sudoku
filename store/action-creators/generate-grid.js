@@ -2,19 +2,21 @@
 
 import actionTypes from '../action-types.js'
 import emptyGrid from '../grid-utils/emptyGrid.js'
+import nonConflictingValues from '../grid-utils/nonConflictingValues.js'
 
 export default (): Object => {
 
-    let grid = emptyGrid(3, 2)
+    let grid = emptyGrid(3, 3)
 
-    for (let i = 0, len = grid.length; i < len; i++) {
+    for (var i = 0, len = grid.length; i < len; i++) {
 
         let row = grid[i]
 
-        for (let i = 0, len = row.length; i < len; i++) {
+        for (let j = 0, len = row.length; j < len; j++) {
 
             // NOTE: placeholder
-            row[i].actualValue = i+1
+            row[j].actualValue = j+1
+            nonConflictingValues(grid, i, j)
         }
     }
 
