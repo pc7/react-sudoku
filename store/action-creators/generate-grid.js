@@ -7,7 +7,7 @@ export default (): Object => {
     let grid = []
 
     const emptyCell = () => ({
-                       actualValue: 1,
+                       actualValue: null,
                        userValue: null,
                        possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
                        isHidden: false
@@ -19,7 +19,9 @@ export default (): Object => {
 
         for (let j = 0; j < 9; j++) {
 
-            row = [...row, emptyCell()]
+            let cell = emptyCell()
+            emptyCell.actualValue = j
+            row = [...row, cell]
         }
 
         grid = [...grid, row]
