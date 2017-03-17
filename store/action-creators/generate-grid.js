@@ -6,8 +6,8 @@ export default (): Object => {
 
     let grid = []
 
-    const emptyCell = () => ({
-                       actualValue: 0,
+    const emptyCell = () : {actualValue: ?number} => ({
+                       actualValue: null,
                        userValue: null,
                        possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
                        isHidden: false
@@ -25,7 +25,6 @@ export default (): Object => {
         }
 
         grid = [...grid, row]
-        console.log(grid)
     }
 
     return {
