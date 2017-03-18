@@ -5,8 +5,6 @@ import findSameDomainCells_tests from './store/grid-utils/find-same-domain-cells
 
 export default () => {
 
-    console.assert(false, 'test assertion')
-
     emptyGrid_tests()
     findSameDomainCells_tests()
 }
