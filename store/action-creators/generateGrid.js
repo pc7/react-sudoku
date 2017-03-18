@@ -38,6 +38,7 @@ export default (): Object => {
                     // If the current square is not at the end of its row, jump back to the previous square.
                     colIndex = colIndex - 2
                 } else {
+debugger
                     // Else, jump back to the last square on the previous row.
                     colIndex = grid[rowIndex].length-1
                     rowIndex = rowIndex - 2
