@@ -1,6 +1,6 @@
 // @flow
 
-import actionTypes from '../action-types.js'
+import actionTypes from '../actionTypes.js'
 
 export default (segmentState: number[] =[], action: Object): number[] => {
 

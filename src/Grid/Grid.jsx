@@ -2,7 +2,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import generateGrid from '../../store/action-creators/generate-grid.js'
+import generateGrid from '../../store/action-creators/generateGrid.js'
 
 import Row from '../Row/Row.jsx'
 

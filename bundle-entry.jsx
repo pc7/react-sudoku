@@ -10,6 +10,10 @@ import grid from './store/reducers/grid.js'
 
 import Grid from './src/Grid/Grid.jsx'
 
+import unitTest from './unit-test-entry.js'
+
+unitTest()
+
 ReactDOM.render(
   <Provider store={createStore(combineReducers({grid}))}>
     <Grid />
