@@ -8,6 +8,8 @@
 
 [done] Create HTML table cells with placeholder content prop numbers obtained from Redux store.
 
+Create unit tests and exportable object type definitions.
+
 Adapt original sudoku application code to generate a complete grid array to be stored in the store.
 
 {actualValue, userValue, isHidden}

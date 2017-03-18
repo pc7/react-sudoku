@@ -1,14 +1,16 @@
 // @flow
 
-export default (smallSquareWidth: number, smallSquareHeight: number) => {
+import type { Cell } from '../types.js'
+
+export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] => {
 
     // TODO: Create possibleValues by smallSquareWidth * smallSquareHeight
-    const emptyCell = () : {actualValue: ?number} => ({
-                       actualValue: null,
-                       userValue: null,
-                       possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
-                       isHidden: false
-                      })
+    const emptyCell = () : Cell => ({
+      actualValue: null,
+      userValue: null,
+      possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
+      isHidden: false
+    })
 
     let grid = []
 
