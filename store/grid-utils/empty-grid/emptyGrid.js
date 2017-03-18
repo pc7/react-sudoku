@@ -1,6 +1,6 @@
 // @flow
 
-import type { Cell } from '../types.js'
+import type { Cell, cellValue } from '../types.js'
 
 export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] => {
 

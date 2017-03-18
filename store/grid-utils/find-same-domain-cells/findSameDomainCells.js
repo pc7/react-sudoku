@@ -1,23 +1,17 @@
 // @flow
 
-export default (grid: any, cellRow: number, cellCol: number) : Array<Object> => {
-/*
-    // TODO: Freeze grid
+import type { Cell, gridIndex } from '../types.js'
 
-    // TODO: Throw exception if coordinates not in argument grid
+// TRANSLITERATION: Returns a set of cells in the same row, column and square as the argument, excluding the argument cell itself.
+export default (grid: Cell[][], cellRow: gridIndex, cellCol: gridIndex) : Set<Cell> => {
 
-    const cellsInSameRow : Array<Object> = grid[cellRow].map(
-        (cell: Object) : Object => cell
-    )
-
-    let cellsInSameCol : Array<Object> = []
-
-    grid.forEach((row) => {cellsInSameCol = [...cellsInSameCol, row[cellCol]]})
+    // TODO: Copy and freeze grid
 
     // TRANSLITERATION: Get the top row and left column of the small square.
-    let cellsInSameSmallSquare : Array<Object> = []
+    const cellsInSameSquare : Set<Cell> = new Set()
     const smallSquareWidth = 3
     const smallSquareHeight = 3
+    // TODO: Cast these expressions to gridIndex instead of using number.
     const topRow : number = Math.floor(cellRow / 3) * smallSquareWidth
     const leftCol : number = Math.floor(cellCol / 3) * smallSquareHeight
 
@@ -25,14 +19,15 @@ export default (grid: any, cellRow: number, cellCol: number) : Array<Object> => 
 
         for (let y = leftCol; y < leftCol+smallSquareHeight; y++) {
 
-           cellsInSameSmallSquare.push(grid[x][y]) 
+           cellsInSameSquare.add(grid[x][y]) 
         }
     }
 
-    const cellsInSameDomains = new Set([...cellsInSameRow, ...cellsInSameCol, ...cellsInSameSmallSquare])
+    const cellsInSameDomain : Set<Cell> = new Set(
+      [...grid[cellRow], ...grid.map((row: Cell[]) => row[cellCol]), ...cellsInSameSquare]
+    )
 
-    cellsInSameDomains.delete(grid[cellRow][cellCol])
+    cellsInSameDomain.delete(grid[cellRow][cellCol])
 
-    return cellsInSameDomains
-*/ return []
+    return cellsInSameDomain
 }
