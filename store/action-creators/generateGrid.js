@@ -22,7 +22,9 @@ export default (): Object => {
                 .filter((value : ?cellValue) : boolean => value !== null)
             )
 
-            const nonConflictingPossibleValues : Set<cellValue> = new Set([...row[colIndex].possibleValues].filter(x => !sameDomainCellValues.has(x)))
+            const nonConflictingPossibleValues : Set<cellValue> = new Set(
+              [...row[colIndex].possibleValues].filter(value => !sameDomainCellValues.has(value))
+            )
 
             if (nonConflictingPossibleValues.size) {
 
@@ -38,7 +40,11 @@ export default (): Object => {
                     // If the current square is not at the end of its row, jump back to the previous square.
                     colIndex = colIndex - 2
                 } else {
-debugger
+
+                    // TODO: Bug here causes grid not to be generated on intermittent renderings.
+                    //       Works fine if this clause is not invoked.
+                    debugger
+
                     // Else, jump back to the last square on the previous row.
                     colIndex = grid[rowIndex].length-1
                     rowIndex = rowIndex - 2
