@@ -1,7 +1,7 @@
 
 import React from 'react'
 import CellComponent from '../Cell/Cell.jsx'
-import type { Cell } from '../types.js'
+import type { Cell } from '../../store/grid-utils/types.js'
 
 const Row = props => (
   <tr>
