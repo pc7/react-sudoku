@@ -3,7 +3,7 @@ import React from 'react'
 
 const Cell = props => (
    <td>
-     {!item.isHidden ? item.actualValue : item.userValue}
+     {!this.props.item.isHidden ? this.props.item.actualValue : this.props.item.userValue}
    </td>
 )
 
