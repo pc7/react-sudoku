@@ -11,4 +11,4 @@ Cell.propTypes = {
   item: React.PropTypes.object,
 }
 
-export default Row
+export default Cell
