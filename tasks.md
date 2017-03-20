@@ -8,17 +8,15 @@
 
 [done] Create HTML table cells with placeholder content prop numbers obtained from Redux store.
 
-Create unit tests and exportable object type definitions.
+[done] Create unit tests and exportable object type definitions.
 
-Adapt original sudoku application code to generate a complete grid array to be stored in the store.
+[done] Adapt original sudoku application code to generate a complete grid array to be stored in the store.
 
-{actualValue, userValue, isHidden}
-
-Implement a backtracking algorithm within the action creator to generate actualValues, instead of using placeholder numbers. The necessary impure randomisation means that this must be performed in an action creator, not the reducer.
-
-Create 'new game' button to invoke grid initialisation action creator function on click.
+[done] Implement a backtracking algorithm within the action creator to generate actualValues, instead of using placeholder numbers. The necessary impure randomisation means that this must be performed in an action creator, not the reducer.
 
 Randomly designate grid cells as hidden when grid is generated. Hidden cells have a 'userValue' property to hold the number that the user selects for the cell, and do not have their actualValue displayed in the user interface.
+
+Create 'new game' button to invoke grid initialisation action creator function on click.
 
 Ability for user to select a 1-9 userValue for hidden cells using a 'select' element. This is dispatched to the store on a 'select' element's 'change' event, using an action creator within the 'select' component. A new reducer is also needed.
 
@@ -26,7 +24,7 @@ Each cell component has a Set of selectable numbers in its props. These are assi
 
 'option' elements within a 'select' element are generated from the selectableNumbers prop, allowing the user to select a userValue for the cell from the restricted set of numbers.
 
-Every time a 'userValue' in the store is updated, a listener is invoked to check whether the number is correct, and if so check for a win.
+Every time a 'userValue' in the store is updated, a listener is invoked to update the possibleUserValues of other cells, and also check whether the userValue is correct, and if so check for a win.
 
 The number of hidden cells when a new grid is created is obtained from a value specified by a slider 'input' element.
 
@@ -34,5 +32,5 @@ Create a button to reset all incorrect userValues in the store's grid. A new act
 
 Actions:
 createGrid
-replaceSelectedNumber
-removeIncorrectSelectedNumbers
+replaceUserValue
+removeIncorrectUserValues

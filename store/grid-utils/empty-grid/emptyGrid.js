@@ -8,7 +8,8 @@ export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] 
     const emptyCell = () : Cell => ({
       actualValue: null,
       userValue: null,
-      possibleValues: new Set([1,2,3,4,5,6,7,8,9]),
+      possibleActualValues: new Set([1,2,3,4,5,6,7,8,9]),
+      possibleUserValues: new Set([1,2,3,4,5,6,7,8,9]),
       isHidden: false
     })
 
