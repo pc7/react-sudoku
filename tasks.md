@@ -16,7 +16,7 @@
 
 Move comments from original application where needed.
 
-Randomly designate grid cells as hidden when grid is generated. Hidden cells have a 'userValue' property to hold the number that the user selects for the cell, and do not have their actualValue displayed in the user interface.
+[done] Randomly designate grid cells as hidden when grid is generated. Hidden cells have a 'userValue' property to hold the number that the user selects for the cell, and do not have their actualValue displayed in the user interface.
 
 Create 'new game' button to invoke grid initialisation action creator function on click.
 

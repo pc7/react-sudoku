@@ -1,14 +1,13 @@
 
 import React from 'react'
+import CellComponent from '../Cell/Cell.jsx'
+import type { Cell } from '../types.js'
 
 const Row = props => (
   <tr>
-    {
-     props.items.map((item: Object) =>
-       <td key={item.actualValue}>
-         {!item.isHidden ? item.actualValue : null}
-       </td>)
-    }
+    {props.items.map((item: CellComponent) =>
+       <Cell item={item} key={item.actualValue} />
+     )}
   </tr>
 )
 
