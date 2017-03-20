@@ -5,8 +5,8 @@ import type { Cell } from '../../store/grid-utils/types.js'
 
 const Row = props => (
   <tr>
-    {props.items.map((item: CellComponent) =>
-       <Cell item={item} key={item.actualValue} />
+    {props.items.map((item: Cell) =>
+       <CellComponent item={item} key={item.actualValue} />
      )}
   </tr>
 )
