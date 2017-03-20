@@ -1,6 +1,7 @@
 // @flow
 
 import findSameDomainCells from '../find-same-domain-cells/findSameDomainCells.js'
+import randomInt from '../../../utils/randomInt.js'
 
 import type { Cell, cellValue } from '../types.js'
 
@@ -26,7 +27,7 @@ export default (grid: Cell[][]) : Cell[][] => {
 
             if (nonConflictingPossibleActualValues.size) {
 
-                const value = [...nonConflictingPossibleActualValues][Math.floor(Math.random() * nonConflictingPossibleActualValues.size)]
+                const value = [...nonConflictingPossibleActualValues][randomInt(nonConflictingPossibleActualValues.size)]
                 row[colIndex].actualValue = value
                 row[colIndex].possibleActualValues.delete(value)
             } else {

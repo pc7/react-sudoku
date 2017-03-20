@@ -1,13 +1,11 @@
 
 import React from 'react'
 
-//TODO: replace key with item.actualValue
-
 const Row = props => (
   <tr>
     {
      props.items.map((item: Object) =>
-       <td key={Math.random()}>
+       <td key={item.actualValue}>
          {!item.isHidden ? item.actualValue : null}
        </td>)
     }
