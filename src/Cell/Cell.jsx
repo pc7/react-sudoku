@@ -7,7 +7,7 @@ const Cell = props => (
    </td>
 )
 
-Row.propTypes = {
+Cell.propTypes = {
   item: React.PropTypes.object,
 }
 
