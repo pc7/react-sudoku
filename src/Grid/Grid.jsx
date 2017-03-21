@@ -1,12 +1,11 @@
+// @flow
 
 import React from 'react'
 import {connect} from 'react-redux'
-
 import generateGrid from '../../store/action-creators/generateGrid.js'
-
 import Row from '../Row/Row.jsx'
 
-const Grid: Function = React.createClass({
+const Grid : Function = React.createClass({
 
   componentWillMount() {
     this.props.initialiseGrid()
@@ -32,3 +31,4 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid)
+

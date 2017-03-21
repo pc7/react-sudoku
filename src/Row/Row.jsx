@@ -1,9 +1,10 @@
+// @flow
 
 import React from 'react'
 import CellComponent from '../Cell/Cell.jsx'
 import type { Cell } from '../../store/grid-utils/types.js'
 
-const Row = props => (
+const Row : Function = (props : {items: Cell[]}) => (
   <tr>
     {props.items.map((item: Cell) =>
        <CellComponent item={item} key={item.actualValue} />
