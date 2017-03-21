@@ -1,6 +1,7 @@
 // @flow
 
 import type { Cell, cellValue } from '../types.js'
+import validCellValues from '../validCellValues.js'
 
 export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] => {
 
@@ -8,8 +9,8 @@ export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] 
     const emptyCell = () : Cell => ({
       actualValue: null,
       userValue: null,
-      possibleActualValues: new Set([1,2,3,4,5,6,7,8,9]),
-      possibleUserValues: new Set([1,2,3,4,5,6,7,8,9]),
+      possibleActualValues: new Set(validCellValues()),
+      possibleUserValues: new Set(validCellValues()),
       isHidden: false
     })
 

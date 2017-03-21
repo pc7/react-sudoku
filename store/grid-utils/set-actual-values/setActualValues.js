@@ -4,6 +4,7 @@ import findSameDomainCells from '../find-same-domain-cells/findSameDomainCells.j
 import randomInt from '../../../utils/randomInt.js'
 
 import type { Cell, cellValue } from '../types.js'
+import validCellValues from '../validCellValues.js'
 
 export default (grid: Cell[][]) : Cell[][] => {
 
@@ -33,7 +34,7 @@ export default (grid: Cell[][]) : Cell[][] => {
             } else {
 
                 row[colIndex].actualValue = null
-                row[colIndex].possibleActualValues = new Set([1,2,3,4,5,6,7,8,9])
+                row[colIndex].possibleActualValues = new Set(validCellValues())
 
                 if (colIndex !== 0) {
                     // If the current square is not at the end of its row, jump back to the previous square.
