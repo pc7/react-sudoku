@@ -14,6 +14,10 @@ const CellSelect : Function = React.createClass({
   //               So, possible user values should be generated dynamically when needed
   //               and assigned to Component state.
 
+  getInitialState() {
+    return {possibleUserValues: []}
+  },
+
   handleSelectClick() {
 
     var colIndex : number = -1;
