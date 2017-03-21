@@ -18,7 +18,7 @@ const CellSelect : Function = React.createClass({
     return {possibleUserValues: []}
   },
 
-  handleSelectClick() {
+  handleSelectFocus() {
 
     var colIndex : number = -1;
 
@@ -29,6 +29,7 @@ const CellSelect : Function = React.createClass({
 
     console.log(rowIndex)
     console.log(colIndex)
+    console.log(sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'userValue'))
 
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(validCellValues()),
@@ -46,7 +47,7 @@ const CellSelect : Function = React.createClass({
   render() {
 
     return (
-      <select name="possibleUserValues" onFocus={(e) => this.handleSelectClick(e)}>
+      <select name="possibleUserValues" onFocus={(e) => this.handleSelectFocus(e)}>
         <option value={null}>None</option>
         {this.state.possibleUserValues.map((value: cellValue) =>
           <option key={value} value={value}>{value}</option>
