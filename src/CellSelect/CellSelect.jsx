@@ -32,8 +32,12 @@ const CellSelect : Function = React.createClass({
     console.log(sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'userValue'))
 
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
-      new Set(validCellValues()),
-      sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'userValue')
+      new Set(
+        validCellValues()),
+        new Set([
+          ...sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'actualValue'),
+          ...sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'userValue')
+        ])
     )
 
     console.log(nonConflictingPossibleUserValues)
