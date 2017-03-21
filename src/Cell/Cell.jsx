@@ -1,9 +1,9 @@
 // @flow
 
 import React from 'react'
-import CellComponent from '../Cell/Cell.jsx'
+import type { Cell as CellType } from '../../store/grid-utils/types.js'
 
-const Cell : Function = (props : {item: CellComponent}) => (
+const Cell : Function = (props : {item: CellType}) => (
    <td>
      {!props.item.isHidden ? props.item.actualValue : props.item.userValue}
    </td>

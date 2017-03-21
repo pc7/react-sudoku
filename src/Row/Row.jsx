@@ -1,13 +1,13 @@
 // @flow
 
 import React from 'react'
-import CellComponent from '../Cell/Cell.jsx'
-import type { Cell } from '../../store/grid-utils/types.js'
+import Cell from '../Cell/Cell.jsx'
+import type { Cell as CellType } from '../../store/grid-utils/types.js'
 
-const Row : Function = (props : {items: Cell[]}) => (
+const Row : Function = (props : {items: CellType[]}) => (
   <tr>
-    {props.items.map((item: Cell) =>
-       <CellComponent item={item} key={item.actualValue} />
+    {props.items.map((item: CellType) =>
+       <Cell item={item} key={item.actualValue} />
      )}
   </tr>
 )
