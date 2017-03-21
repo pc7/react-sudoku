@@ -17,9 +17,10 @@ export default (grid: Cell[][]) : Cell[][] => {
 
         for (let colIndex = 0, len = row.length; colIndex < len; colIndex++) {
 
-            const sameDomainCellValues2 : Set<?cellValue> = sameDomainCellValues(grid, rowIndex, colIndex, 'actualValue')
-
-            const nonConflictingPossibleActualValues : Set<cellValue> = diffSet(row[colIndex].possibleActualValues, sameDomainCellValues2)
+            const nonConflictingPossibleActualValues : Set<cellValue> = diffSet(
+              row[colIndex].possibleActualValues,
+              sameDomainCellValues(grid, rowIndex, colIndex, 'actualValue')
+            )
 
             if (nonConflictingPossibleActualValues.size) {
 
