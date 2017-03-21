@@ -1,6 +1,7 @@
 // @flow
 
 import findSameDomainCells from '../find-same-domain-cells/findSameDomainCells.js'
+import diffSet from '../../../utils/diffSet.js'
 import randomInt from '../../../utils/randomInt.js'
 
 import type { Cell, cellValue } from '../types.js'
@@ -22,9 +23,10 @@ export default (grid: Cell[][]) : Cell[][] => {
                 .filter((value : ?cellValue) : boolean => value !== null)
             )
 
-            const nonConflictingPossibleActualValues : Set<cellValue> = new Set(
-              [...row[colIndex].possibleActualValues].filter(value => !sameDomainCellValues.has(value))
-            )
+            //const nonConflictingPossibleActualValues : Set<cellValue> = new Set(
+            //  [...row[colIndex].possibleActualValues].filter(value => !sameDomainCellValues.has(value))
+            //)
+            const nonConflictingPossibleActualValues : Set<cellValue> = diffSet(row[colIndex].possibleActualValues, sameDomainCellValues)
 
             if (nonConflictingPossibleActualValues.size) {
 
