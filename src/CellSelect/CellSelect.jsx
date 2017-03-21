@@ -46,7 +46,7 @@ const CellSelect : Function = React.createClass({
   render() {
 
     return (
-      <select name="possibleUserValues" onClick={(e) => this.handleSelectClick(e)}>
+      <select name="possibleUserValues" onFocus={(e) => this.handleSelectClick(e)}>
         <option value={null}>None</option>
         {this.state.possibleUserValues.map((value: cellValue) =>
           <option key={value} value={value}>{value}</option>
