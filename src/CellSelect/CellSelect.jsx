@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import sameDomainCellValues from '../../store/grid-utils/same-domain-cell-values/sameDomainCellValues.js'
 import findCellCoordinates from '../../store/grid-utils/find-cell-coordinates/findCellCoordinates.js'
 import validCellValues from '../../store/grid-utils/validCellValues.js'
+import setUserValue from '../../store/action-creators/setUserValue.js'
 import diffSet from '../../utils/diffSet.js'
 import type { Cell as CellType, cellValue } from '../../store/grid-utils/types.js'
 
@@ -27,25 +28,45 @@ const CellSelect : Function = React.createClass({
       new Set(
         validCellValues()),
         new Set([
-          ...sameDomainCellValues(this.props.grid, coordinates.rowIndex, coordinates.colIndex, 'actualValue'),
-          ...sameDomainCellValues(this.props.grid, coordinates.rowIndex, coordinates.colIndex, 'userValue')
+          ...sameDomainCellValues(
+            this.props.grid,
+            coordinates.rowIndex,
+            coordinates.colIndex,
+            'actualValue'
+          ),
+          ...sameDomainCellValues(
+            this.props.grid,
+            coordinates.rowIndex,
+            coordinates.colIndex,
+            'userValue'
+          )
         ])
     )
 
     this.setState({possibleUserValues: [...nonConflictingPossibleUserValues]})
   },
 
-  handleOptionClick() {
-    const grid = Object.assign({}, this.props.grid)
+  handleChange(e) {
+    const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
+    this.props.setUserValue(
+      this.props.grid,
+      coordinates.rowIndex,
+      coordinates.colIndex,
+      e.nativeEvent.target.value
+    )
   },
 
   render() {
 
     return (
-      <select name="possibleUserValues" onFocus={(e) => this.handleSelectFocus(e)}>
-        <option value={null}>None</option>
+      <select name="possibleUserValues"
+              onFocus={(e) => this.handleSelectFocus(e)}
+              onChange={(e) => this.handleChange(e)}
+              >
+                  
+        <option value={''}>None</option>
         {this.state.possibleUserValues.map((value: cellValue) =>
-          <option key={value} value={value}>{value}</option>
+          <option key={value} value={value} >{value}</option>
          )}
       </select>
     )
@@ -61,7 +82,7 @@ const mapStateToProps = (storeState: Object): Object => ({
 })
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
-//  initialiseGrid: () => dispatch(generateGrid())
+  setUserValue: (grid, rowIndex, colIndex, value) => dispatch(setUserValue(grid, rowIndex, colIndex, value))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CellSelect)
