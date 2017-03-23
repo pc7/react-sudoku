@@ -52,3 +52,9 @@ export type action_initialiseGrid = {
   type: actionTypes.INITIALISE_GRID,
   grid: Cell[][]
 }
+
+export type action_setUserValue = {
+  type: actionTypes.SET_USER_VALUE,
+  grid: Cell[][]
+}
+

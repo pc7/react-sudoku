@@ -3,6 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import sameDomainCellValues from '../../store/grid-utils/same-domain-cell-values/sameDomainCellValues.js'
+import findCellCoordinates from '../../store/grid-utils/find-cell-coordinates/findCellCoordinates.js'
 import validCellValues from '../../store/grid-utils/validCellValues.js'
 import diffSet from '../../utils/diffSet.js'
 import type { Cell as CellType, cellValue } from '../../store/grid-utils/types.js'
@@ -20,18 +21,14 @@ const CellSelect : Function = React.createClass({
 
   handleSelectFocus() {
 
-    var colIndex : number = -1;
-
-    for (var rowIndex : number = 0, len = this.props.grid.length; rowIndex < len; rowIndex++) {
-        if ((colIndex = this.props.grid[rowIndex].indexOf(this.props.cellRef)) !== -1) break
-    }
+    const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
 
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(
         validCellValues()),
         new Set([
-          ...sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'actualValue'),
-          ...sameDomainCellValues(this.props.grid, rowIndex, colIndex, 'userValue')
+          ...sameDomainCellValues(this.props.grid, coordinates.rowIndex, coordinates.colIndex, 'actualValue'),
+          ...sameDomainCellValues(this.props.grid, coordinates.rowIndex, coordinates.colIndex, 'userValue')
         ])
     )
 
@@ -39,6 +36,7 @@ const CellSelect : Function = React.createClass({
   },
 
   handleOptionClick() {
+    const grid = Object.assign({}, this.props.grid)
   },
 
   render() {
