@@ -14,9 +14,9 @@ export default (grid: Cell[][]) : Cell[][] => {
 
     let isBacktrack : boolean = false
 
-    rowLoop: for (var rowIndex = 0, len = grid.length; rowIndex < len; rowIndex++) {
+    rowLoop: for (let rowIndex = 0, len = grid.length; rowIndex < len; rowIndex++) {
 
-        let row = grid[rowIndex]
+        const row = grid[rowIndex]
 
         for (let colIndex = isBacktrack ? grid[rowIndex].length-1 : 0, len = row.length; colIndex < len; colIndex++) {
 
