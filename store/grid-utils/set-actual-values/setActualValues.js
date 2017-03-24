@@ -12,11 +12,15 @@ export default (grid: Cell[][]) : Cell[][] => {
 
     // ALTERNATIVE: Could copy the 'grid' argument and return the copy, if wanting immutability.
 
-    for (var rowIndex = 0, len = grid.length; rowIndex < len; rowIndex++) {
+    let isBacktrack : boolean = false
+
+    rowLoop: for (var rowIndex = 0, len = grid.length; rowIndex < len; rowIndex++) {
 
         let row = grid[rowIndex]
 
-        for (let colIndex = 0, len = row.length; colIndex < len; colIndex++) {
+        for (let colIndex = isBacktrack ? grid[rowIndex].length-1 : 0, len = row.length; colIndex < len; colIndex++) {
+
+            isBacktrack = false
 
             const nonConflictingPossibleActualValues : Set<cellValue> = diffSet(
               row[colIndex].possibleActualValues,
@@ -38,16 +42,12 @@ export default (grid: Cell[][]) : Cell[][] => {
                     colIndex = colIndex - 2
                 } else {
 
-                    // TODO: Bug here causes grid not to be generated on intermittent renderings.
-                    //       Works fine if this clause is not invoked.
-                    debugger
-
                     // Else, jump back to the last square on the previous row.
-                    colIndex = grid[rowIndex].length-1
                     rowIndex = rowIndex - 2
-                    break
+                    isBacktrack = true
+                    continue rowLoop
                 }
-            }            
+            }
         }
     }
 

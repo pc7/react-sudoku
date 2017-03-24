@@ -12,6 +12,7 @@ import Grid from './src/Grid/Grid.jsx'
 
 import unitTest from './unit-test-entry.js'
 
+// TODO: Remove this from bundling for live version.
 unitTest()
 
 ReactDOM.render(

@@ -25,23 +25,21 @@ const CellSelect : Function = React.createClass({
 
     const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
 
+    const sameDomainCells = findSameDomainCells(
+                              this.props.grid,
+                              coordinates.rowIndex,
+                              coordinates.colIndex
+                            )
+
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(
         validCellValues()),
         new Set([
-          ...cellValues(new Set([...findSameDomainCells(
-                                      this.props.grid,
-                                      coordinates.rowIndex,
-                                      coordinates.colIndex
-                                    )
-                                 ].filter((c: CellType): boolean => !c.isHidden)
-            ), 'actualValue'),
-          ...cellValues(new Set([...findSameDomainCells(
-                                      this.props.grid,
-                                      coordinates.rowIndex,
-                                      coordinates.colIndex
-                                    )
-                                 ]), 'userValue')
+          ...cellValues(new Set(
+                              [...sameDomainCells]
+                               .filter((c: CellType): boolean => !c.isHidden)
+                            ), 'actualValue'),
+          ...cellValues(new Set([...sameDomainCells]), 'userValue')
         ])
     )
 
