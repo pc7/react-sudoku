@@ -59,3 +59,8 @@ export type action_setUserValue = {
   grid: Cell[][]
 }
 
+export type action_removeIncorrectUserValues = {
+  type: actionTypes.REMOVE_INCORRECT_USER_VALUES,
+  grid: Cell[][]
+}
+

@@ -16,6 +16,9 @@ export default (segmentState: Cell[][] =[], action: Object): Cell[][] => {
         case actionTypes.SET_USER_VALUE:
             return action.grid
 
+        case actionTypes.REMOVE_INCORRECT_USER_VALUES:
+            return action.grid
+
         default:
             return segmentState
     }
