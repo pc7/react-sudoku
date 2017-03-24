@@ -25,7 +25,6 @@ const CellSelect : Function = React.createClass({
 
     const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
 
-    // FIXME: Taken cell userValues are still present in non conflicting values set.
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(
         validCellValues()),
@@ -46,7 +45,6 @@ const CellSelect : Function = React.createClass({
         ])
     )
 
-console.log([...nonConflictingPossibleUserValues])
     this.setState({possibleUserValues: [...nonConflictingPossibleUserValues]})
   },
 
@@ -56,7 +54,7 @@ console.log([...nonConflictingPossibleUserValues])
       this.props.grid,
       coordinates.rowIndex,
       coordinates.colIndex,
-      e.nativeEvent.target.value
+      e.nativeEvent.target.value ? Number(e.nativeEvent.target.value) : null
     )
   },
 
