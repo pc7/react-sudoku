@@ -64,7 +64,7 @@ const CellSelect : Function = React.createClass({
               onChange={(e) => this.handleChange(e)}
               >
                   
-        <option value={''} selected>None</option>
+        <option value={''}>None</option>
         {this.state.possibleUserValues.map((value: cellValue) =>
           <option key={value} value={value} >{value}</option>
          )}

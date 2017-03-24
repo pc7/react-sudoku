@@ -27,7 +27,7 @@ const mapStateToProps = (storeState: Object): Object => ({
 })
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
-  initialiseGrid: () => dispatch(generateGrid())
+  initialiseGrid: () => dispatch(generateGrid(40))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid)

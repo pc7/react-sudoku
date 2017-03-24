@@ -4,8 +4,6 @@ import type { Cell } from '../types.js'
 
 export default (grid: Cell[][]) : Cell[][] => {
 
-console.log('remove')
-
     const g = [...grid]
 
     for (let rowIndex : number = 0, len = g.length; rowIndex < len; rowIndex++) {
