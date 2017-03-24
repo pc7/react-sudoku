@@ -2,7 +2,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import sameDomainCellValues from '../../store/grid-utils/same-domain-cell-values/sameDomainCellValues.js'
+import cellValues from '../../store/grid-utils/cell-values/cellValues.js'
+import findSameDomainCells from '../../store/grid-utils/find-same-domain-cells/findSameDomainCells.js'
 import findCellCoordinates from '../../store/grid-utils/find-cell-coordinates/findCellCoordinates.js'
 import validCellValues from '../../store/grid-utils/validCellValues.js'
 import setUserValue from '../../store/action-creators/setUserValue.js'
@@ -30,18 +31,18 @@ const CellSelect : Function = React.createClass({
       new Set(
         validCellValues()),
         new Set([
-          ...sameDomainCellValues(
-            this.props.grid,
-            coordinates.rowIndex,
-            coordinates.colIndex,
-            'actualValue'
-          ),
-          ...sameDomainCellValues(
-            this.props.grid,
-            coordinates.rowIndex,
-            coordinates.colIndex,
-            'userValue'
-          )
+          ...cellValues(new Set([...findSameDomainCells(
+                                      this.props.grid,
+                                      coordinates.rowIndex,
+                                      coordinates.colIndex
+                                    )
+                                 ]), 'actualValue'),
+          ...cellValues(new Set([...findSameDomainCells(
+                                      this.props.grid,
+                                      coordinates.rowIndex,
+                                      coordinates.colIndex
+                                    )
+                                 ]), 'userValue')
         ])
     )
 
