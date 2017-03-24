@@ -9,19 +9,11 @@ import type { Cell } from '../../store/grid-utils/types.js'
 // TODO: Move button to presentational component.
 const Controls : Function = React.createClass({
 
-  newGame() {
-    this.props.newGame()
-  },
-
-  removeIncorrectEntries() {
-
-  },
-
   render() {
 
     return (
       <section>
-        <button onClick={(e) => this.newGame()}>New game</button>
+        <button onClick={(e) => this.props.newGame()}>New game</button>
         <button onClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}>Remove incorrect entries</button>
       </section>
     )
