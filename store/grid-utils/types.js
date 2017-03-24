@@ -64,3 +64,11 @@ export type action_removeIncorrectUserValues = {
   grid: Cell[][]
 }
 
+export type action_gameWon = {
+  type: actionTypes.GAME_WON,
+}
+
+export type action_gameReset = {
+  type: actionTypes.GAME_RESET,
+}
+

@@ -4,6 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import generateGrid from '../../store/action-creators/generateGrid.js'
 import removeIncorrectUserValues from '../../store/action-creators/removeIncorrectUserValues.js'
+import gameReset from '../../store/action-creators/gameReset.js'
 import type { Cell } from '../../store/grid-utils/types.js'
 
 // TODO: Move button to presentational component.
@@ -20,7 +21,9 @@ const Controls : Function = React.createClass({
     return (
       <section>
         <button onClick={(e) => this.props.newGame(this.state.hiddenCells)}>New game</button>
-        <button onClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}>Remove incorrect entries</button>
+        <button onClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}
+                disabled={this.props.gameWon}
+                >Remove incorrect entries</button>
         <input type="range"
                min="1"
                max={totalSquares - 1}
@@ -34,11 +37,15 @@ const Controls : Function = React.createClass({
 })
 
 const mapStateToProps = (storeState: Object): Object => ({
-  grid: storeState.grid
+  grid: storeState.grid,
+  gameWon: storeState.gameWon
 })
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
-  newGame: (hiddenCells: number) => dispatch(generateGrid(hiddenCells)),
+  newGame: (hiddenCells: number) => {
+    dispatch(generateGrid(hiddenCells))
+    dispatch(gameReset())
+  },
   removeIncorrectUserValues: (grid: Cell[][]) => dispatch(removeIncorrectUserValues(grid)),
 })
 
