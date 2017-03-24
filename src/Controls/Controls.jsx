@@ -31,6 +31,7 @@ const Controls : Function = React.createClass({
                defaultValue={this.state.hiddenCells}
                onChange={(e) => this.setState({hiddenCells: e.target.value})}
                />
+        <span>{this.props.gameWon ? 'Game Won!' : ''}</span>
       </section>
     )
   }
