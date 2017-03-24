@@ -5,11 +5,11 @@ import type { Cell, cellValue, action_setUserValue } from '../grid-utils/types.j
 
 export default (grid : Cell[][], rowIndex : number, colIndex : number, value: cellValue) : action_setUserValue => {
 
-    const gridCopy = grid.slice()
-    gridCopy[rowIndex][colIndex].userValue = value
+    const g = [...grid]
+    g[rowIndex][colIndex].userValue = value
 
     return {
       type: actionTypes.SET_USER_VALUE,
-      grid: gridCopy
+      grid: g
     }
 }
