@@ -24,6 +24,8 @@ const CellSelect : Function = React.createClass({
 
     const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
 
+    // FIXME: Exclude the actualValue of hidden cells.
+    //        Convert sameDomainCellValues() to cellValues, which takes cells as arg.
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(
         validCellValues()),
@@ -43,6 +45,7 @@ const CellSelect : Function = React.createClass({
         ])
     )
 
+console.log([...nonConflictingPossibleUserValues])
     this.setState({possibleUserValues: [...nonConflictingPossibleUserValues]})
   },
 

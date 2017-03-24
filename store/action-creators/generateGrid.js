@@ -12,5 +12,5 @@ import type { action_initialiseGrid } from '../grid-utils/types.js'
 //       and is not part of application state.
 export default () : action_initialiseGrid => ({
   type: actionTypes.INITIALISE_GRID,
-  grid: setHiddenCells(setActualValues(emptyGrid(3, 3)), 20)
+  grid: setHiddenCells(setActualValues(emptyGrid(3, 3)), 70)
 })

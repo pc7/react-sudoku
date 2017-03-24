@@ -5,6 +5,7 @@ import actionTypes from '../actionTypes.js'
 // ARCHITECTURE: This assumes a standard 9x9 grid, will need changing if not.
 export type cellValue = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 export type gridIndex = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
+export type cellValueProperty = 'actualValue' | 'userValue'
 
 // TODO: gridIndex enums must accept number operations.
 // http://stackoverflow.com/questions/38825773/flowtype-string-incompatible-with-string-enum
