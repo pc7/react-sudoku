@@ -25,8 +25,7 @@ const CellSelect : Function = React.createClass({
 
     const coordinates = findCellCoordinates(this.props.grid, this.props.cellRef)
 
-    // FIXME: Exclude the actualValue of hidden cells.
-    //        Convert sameDomainCellValues() to cellValues, which takes cells as arg.
+    // FIXME: Taken cell userValues are still present in non conflicting values set.
     const nonConflictingPossibleUserValues : Set<cellValue> = diffSet(
       new Set(
         validCellValues()),
@@ -36,7 +35,8 @@ const CellSelect : Function = React.createClass({
                                       coordinates.rowIndex,
                                       coordinates.colIndex
                                     )
-                                 ]), 'actualValue'),
+                                 ].filter((c: CellType): boolean => !c.isHidden)
+            ), 'actualValue'),
           ...cellValues(new Set([...findSameDomainCells(
                                       this.props.grid,
                                       coordinates.rowIndex,
