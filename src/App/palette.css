@@ -1,0 +1,7 @@
+
+:root {
+  --buttonContent: #fff;
+  --buttonEnabledBackground: #6dc227;
+  --buttonHoverBackground: #77d42a;
+  --buttonDisabledBackground: #bbb;
+}

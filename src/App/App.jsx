@@ -4,6 +4,8 @@ import React from 'react'
 import Controls from '../Controls/Controls.jsx'
 import Grid from '../Grid/Grid.jsx'
 
+import reset from './reset.css'
+
 const App : Function = React.createClass({
 
   // ARCHITECTURE: Application can potentially support other dimensions, eg 3x2,

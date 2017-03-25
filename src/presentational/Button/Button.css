@@ -1,0 +1,26 @@
+
+@import url('../../App/palette.css');
+
+.btn {
+  padding: 0.4rem 1rem;
+  border: 0;
+  color: var(--buttonContent, #fff);
+  background-color: var(--buttonEnabledBackground, green);
+  outline: 0;
+  font-weight: 700;
+}
+
+.btn:enabled:hover {
+  background-color: var(--buttonHoverBackground, grey);
+  cursor: pointer;
+}
+
+.btn:enabled:active {
+  position: relative;
+  top: 1px;
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--buttonDisabledBackground, grey);
+}
