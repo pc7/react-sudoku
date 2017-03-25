@@ -12,30 +12,25 @@ import removeIncorrectUserValues from '../../store/action-creators/removeIncorre
 import gameReset from '../../store/action-creators/gameReset.js'
 import type { Cell } from '../../store/grid-utils/types.js'
 
-const Controls : Function = React.createClass({
+const Controls : Function = props => (
 
-  render() {
-
-    return (
-      <section>
-        <Button content="New game"
-                handleClick={(e) => this.props.newGame(this.props.hiddenCells)}
-                />
-        <Button content="Remove incorrect entries"
-                handleClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}
-                isDisabled={this.props.gameWon}
-                />
-        <Range min={1}
-               max={(this.props.smallSqWidth * 3 * this.props.smallSqHeight * 3) - 1}
-               step={1}
-               defaultValue={this.props.hiddenCells}
-               handleChange={(e) => this.props.setHiddenCells(e.target.value)}
-               />
-        <span>{this.props.gameWon ? 'Game Won!' : ''}</span>
-      </section>
-    )
-  }
-})
+  <section>
+    <Button content="New game"
+            handleClick={(e) => props.newGame(props.hiddenCells)}
+            />
+    <Button content="Remove incorrect entries"
+            handleClick={(e) => props.removeIncorrectUserValues(props.grid)}
+            isDisabled={props.gameWon}
+            />
+    <Range min={1}
+           max={(props.smallSqWidth * 3 * props.smallSqHeight * 3) - 1}
+           step={1}
+           defaultValue={props.hiddenCells}
+           handleChange={(e) => props.setHiddenCells(e.target.value)}
+           />
+    <span>{props.gameWon ? 'Game Won!' : ''}</span>
+  </section>
+)
 
 Controls.propTypes = {
   smallSqWidth: React.PropTypes.number,
