@@ -16,9 +16,6 @@ const Controls : Function = React.createClass({
 
   render() {
 
-    // TODO: grid[0].length isn't available on initial rendering, needs fixing.
-    const totalSquares : number = (this.props.grid.length * this.props.grid.length)
-
     return (
       <section>
         <Button content="New game"
@@ -29,7 +26,7 @@ const Controls : Function = React.createClass({
                 isDisabled={this.props.gameWon}
                 />
         <Range min={1}
-               max={totalSquares - 1}
+               max={(this.props.smallSqWidth * 3 * this.props.smallSqHeight * 3) - 1}
                step={1}
                defaultValue={this.props.hiddenCells}
                handleChange={(e) => this.props.setHiddenCells(e.target.value)}
@@ -41,6 +38,8 @@ const Controls : Function = React.createClass({
 })
 
 Controls.propTypes = {
+  smallSqWidth: React.PropTypes.number,
+  smallSqHeight: React.PropTypes.number,
   hiddenCells: React.PropTypes.number,
   setHiddenCells: React.PropTypes.func
 }
@@ -52,7 +51,7 @@ const mapStateToProps = (storeState: Object): Object => ({
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
   newGame: (hiddenCells: number) => {
-    dispatch(generateGrid(hiddenCells))
+    dispatch(generateGrid(3, 3, hiddenCells))
     dispatch(gameReset())
   },
   removeIncorrectUserValues: (grid: Cell[][]) => dispatch(removeIncorrectUserValues(grid)),

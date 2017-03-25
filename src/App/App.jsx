@@ -6,7 +6,10 @@ import Grid from '../Grid/Grid.jsx'
 
 const App : Function = React.createClass({
 
-  getInitialState: () => ({hiddenCells: 40}),
+  smallSqWidth: 3,
+  smallSqHeight: 3,
+
+  getInitialState: () => ({hiddenCells: 60}),
 
   render() {
 
@@ -14,8 +17,13 @@ const App : Function = React.createClass({
       <main>
         <Controls hiddenCells={this.state.hiddenCells}
                   setHiddenCells={(c: number) => this.setState({hiddenCells: c})}
+                  smallSqWidth={this.smallSqWidth}
+                  smallSqHeight={this.smallSqHeight}
                   />
-        <Grid hiddenCells={this.state.hiddenCells} />
+        <Grid hiddenCells={this.state.hiddenCells}
+              smallSqWidth={this.smallSqWidth}
+              smallSqHeight={this.smallSqHeight}
+              />
       </main>
     )
   }
