@@ -8,11 +8,11 @@ export default (grid: Cell[][], cellRow: number, cellCol: number) : Set<Cell> =>
     // TODO: Throw exception if cellRow and cellCol are not in 0-8 range, or create a type that enforces this and supports maths operations.
 
     // TRANSLITERATION: Get the top row and left column of the small square.
-    const cellsInSameSquare : Set<Cell> = new Set()
-    const smallSquareWidth = 3
-    const smallSquareHeight = 3
-    const topRow : number = Math.floor(cellRow / 3) * smallSquareWidth
-    const leftCol : number = Math.floor(cellCol / 3) * smallSquareHeight
+    const cellsInSameSquare : Set<Cell> = new Set(),
+          smallSquareWidth = grid[0].length / 3,
+          smallSquareHeight = grid.length / 3,
+          topRow : number = Math.floor(cellRow / 3) * smallSquareWidth,
+          leftCol : number = Math.floor(cellCol / 3) * smallSquareHeight
 
     for (var x = topRow; x < topRow+smallSquareWidth; x++) {
 
