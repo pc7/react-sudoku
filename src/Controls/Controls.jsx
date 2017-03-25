@@ -3,6 +3,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Button from '../presentational/Button/Button.jsx'
+import Range from '../presentational/Range/Range.jsx'
 import generateGrid from '../../store/action-creators/generateGrid.js'
 import removeIncorrectUserValues from '../../store/action-creators/removeIncorrectUserValues.js'
 import gameReset from '../../store/action-creators/gameReset.js'
@@ -27,12 +28,11 @@ const Controls : Function = React.createClass({
                 handleClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}
                 isDisabled={this.props.gameWon}
                 />
-        <input type="range"
-               min="1"
+        <Range min={1}
                max={totalSquares - 1}
-               step="1"
+               step={1}
                defaultValue={this.state.hiddenCells}
-               onChange={(e) => this.setState({hiddenCells: e.target.value})}
+               handleChange={(e) => this.setState({hiddenCells: e.target.value})}
                />
         <span>{this.props.gameWon ? 'Game Won!' : ''}</span>
       </section>
