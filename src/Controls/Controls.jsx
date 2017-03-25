@@ -2,12 +2,12 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+import Button from '../presentational/Button/Button.jsx'
 import generateGrid from '../../store/action-creators/generateGrid.js'
 import removeIncorrectUserValues from '../../store/action-creators/removeIncorrectUserValues.js'
 import gameReset from '../../store/action-creators/gameReset.js'
 import type { Cell } from '../../store/grid-utils/types.js'
 
-// TODO: Move button to presentational component.
 // TODO: Lift hiddenCells state up to parent component, number is duplicated in Grid component.
 const Controls : Function = React.createClass({
 
@@ -20,10 +20,13 @@ const Controls : Function = React.createClass({
 
     return (
       <section>
-        <button onClick={(e) => this.props.newGame(this.state.hiddenCells)}>New game</button>
-        <button onClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}
-                disabled={this.props.gameWon}
-                >Remove incorrect entries</button>
+        <Button content="New game"
+                handleClick={(e) => this.props.newGame(this.state.hiddenCells)}
+                />
+        <Button content="Remove incorrect entries"
+                handleClick={(e) => this.props.removeIncorrectUserValues(this.props.grid)}
+                isDisabled={this.props.gameWon}
+                />
         <input type="range"
                min="1"
                max={totalSquares - 1}
