@@ -2,7 +2,6 @@
 
 import type { Cell } from '../types.js'
 
-// TODO: Abstract looping over every cell to its own function.
 export default (grid: Cell[][]) : boolean => {
 
     const g = [...grid]

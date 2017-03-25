@@ -7,7 +7,8 @@ import Grid from '../Grid/Grid.jsx'
 const App : Function = React.createClass({
 
   // ARCHITECTURE: Application can potentially support other dimensions, eg 3x2,
-  //               the cellValue type would need to be updated accordingly.
+  //               the validCellValues array and cellValue type would need to
+  //               be updated accordingly.
   smallSqWidth: 3,
   smallSqHeight: 3,
 

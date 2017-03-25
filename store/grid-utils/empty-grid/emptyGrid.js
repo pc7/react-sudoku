@@ -5,7 +5,6 @@ import validCellValues from '../validCellValues.js'
 
 export default (smallSquareWidth: number, smallSquareHeight: number) : Cell[][] => {
 
-    // TODO: Create possibleValues by smallSquareWidth * smallSquareHeight
     const emptyCell = () : Cell => ({
       actualValue: null,
       userValue: null,
