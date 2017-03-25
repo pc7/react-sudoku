@@ -18,21 +18,17 @@ Move comments from original application where needed.
 
 [done] Randomly designate grid cells as hidden when grid is generated. Hidden cells have a 'userValue' property to hold the number that the user selects for the cell, and do not have their actualValue displayed in the user interface.
 
-Create 'new game' button to invoke grid initialisation action creator function on click.
+[done] Create 'new game' button to invoke grid initialisation action creator function on click.
 
-Ability for user to select a 1-9 userValue for hidden cells using a 'select' element. This is dispatched to the store on a 'select' element's 'change' event, using an action creator within the 'select' component. A new reducer is also needed.
+[done] Ability for user to select a 1-9 userValue for hidden cells using a 'select' element. This is dispatched to the store on a 'select' element's 'change' event, using an action creator within the 'select' component. A new reducer is also needed.
 
-Each cell component has a Set of selectable numbers in its props. These are assigned using processing within mapStateToProps(), in which the store's grid is processed to create a single Set prop. This ensures that selectable numbers are obtained from the restricted set specified in the props so that users cannot violate grid number integrity. Selectable numbers potentially don't include the cell's actualValue, if the user has made errors in their number selection.
+[done] Each cell component has a Set of selectable numbers in its props. These are assigned using processing within mapStateToProps(), in which the store's grid is processed to create a single Set prop. This ensures that selectable numbers are obtained from the restricted set specified in the props so that users cannot violate grid number integrity. Selectable numbers potentially don't include the cell's actualValue, if the user has made errors in their number selection.
 
-'option' elements within a 'select' element are generated from the selectableNumbers prop, allowing the user to select a userValue for the cell from the restricted set of numbers.
+[done] 'option' elements within a 'select' element are generated from the selectableNumbers prop, allowing the user to select a userValue for the cell from the restricted set of numbers.
 
-Every time a 'userValue' in the store is updated, a listener is invoked to update the possibleUserValues of other cells, and also check whether the userValue is correct, and if so check for a win.
+[done] Every time a 'userValue' in the store is updated, a listener is invoked to update the possibleUserValues of other cells, and also check whether the userValue is correct, and if so check for a win.
 
-The number of hidden cells when a new grid is created is obtained from a value specified by a slider 'input' element.
+[done] The number of hidden cells when a new grid is created is obtained from a value specified by a slider 'input' element.
 
-Create a button to reset all incorrect userValues in the store's grid. A new action type and reducer are required. The behaviour is pure and can be performed within the reducer.
+[done] Create a button to reset all incorrect userValues in the store's grid. A new action type and reducer are required. The behaviour is pure and can be performed within the reducer.
 
-Actions:
-createGrid
-replaceUserValue
-removeIncorrectUserValues
