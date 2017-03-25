@@ -8,7 +8,7 @@ import Row from '../Row/Row.jsx'
 const Grid : Function = React.createClass({
 
   componentWillMount() {
-    this.props.initialiseGrid()
+    this.props.initialiseGrid(this.props.hiddenCells)
   },
 
   render() {
@@ -22,12 +22,16 @@ const Grid : Function = React.createClass({
   }
 })
 
+Grid.propTypes = {
+  hiddenCells: React.PropTypes.number
+}
+
 const mapStateToProps = (storeState: Object): Object => ({
   grid: storeState.grid
 })
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
-  initialiseGrid: () => dispatch(generateGrid(40))
+  initialiseGrid: (c: number) => dispatch(generateGrid(c))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Grid)
