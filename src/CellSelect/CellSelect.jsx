@@ -56,14 +56,15 @@ const CellSelect : Function = React.createClass({
       this.props.grid,
       coordinates.rowIndex,
       coordinates.colIndex,
-      e.nativeEvent.target.value ? Number(e.nativeEvent.target.value) : null
+      e.nativeEvent.target.value ? e.nativeEvent.target.value : null
     )
   },
 
   render() {
 
     return (
-      <select name="possibleUserValues"
+      <select className={this.props.className}
+              name="possibleUserValues"
               onFocus={(e) => this.handleSelectFocus(e)}
               onChange={(e) => this.handleChange(e)}
               >

@@ -27,7 +27,7 @@ const Controls : Function = props => (
            max={(props.smallSqWidth * 3 * props.smallSqHeight * 3) - 1}
            step={1}
            defaultValue={props.hiddenCells}
-           handleChange={(e) => props.setHiddenCells(e.target.value)}
+           handleChange={(e) => props.setHiddenCells(Number(e.target.value))}
            />
     <span>{props.gameWon ? 'Game Won!' : ''}</span>
   </section>

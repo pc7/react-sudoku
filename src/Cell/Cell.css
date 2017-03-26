@@ -19,6 +19,19 @@
   border-left: var(--strongGridBorder, 2px solid grey);
 }
 
+/* ALTERNATIVE: The hover functionality may be better implemented by 
+                having the classname within the CellSelect component
+                and passing a prop for hover and game won status. */
+.cell:not(:hover) .cellSelect,
+.cell.gameWon .cellSelect {
+  display: none;
+}
+
 .revealed {
   background-color: #e7e7e7;
+}
+
+.cell:not(.revealed).gameWon {
+  /* TODO: change this colour */
+  background-color: grey;
 }
