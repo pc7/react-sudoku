@@ -2,14 +2,18 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
+
 import cellValues from '../../store/grid-utils/cell-values/cellValues.js'
 import findSameDomainCells from '../../store/grid-utils/find-same-domain-cells/findSameDomainCells.js'
 import checkForWin from '../../store/grid-utils/check-for-win/checkForWin.js'
 import findCellCoordinates from '../../store/grid-utils/find-cell-coordinates/findCellCoordinates.js'
 import validCellValues from '../../store/grid-utils/validCellValues.js'
+
 import setUserValue from '../../store/action-creators/setUserValue.js'
 import gameWon from '../../store/action-creators/gameWon.js'
+
 import diffSet from '../../utils/diffSet.js'
+
 import type { Cell as CellType, cellValue } from '../../store/grid-utils/types.js'
 
 const CellSelect : Function = React.createClass({
@@ -19,9 +23,7 @@ const CellSelect : Function = React.createClass({
   //               So, possible user values should be generated dynamically when needed
   //               and assigned to Component state.
 
-  getInitialState() {
-    return {possibleUserValues: []}
-  },
+  getInitialState: () => ({possibleUserValues: []}),
 
   handleSelectFocus() {
 

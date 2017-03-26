@@ -7,9 +7,8 @@ import setHiddenCells from '../grid-utils/set-hidden-cells/setHiddenCells.js'
 
 import type { action_initialiseGrid } from '../grid-utils/types.js'
 
-// TODO: Remove possibleActualValues and possibleUserValues properties from cell objects
-//       before assigning to store. possibleActualValues is used during grid generation,
-//       and is not part of application state.
+// TODO: Remove properties that are used in grid generation and don't need to be part of application state,
+//       eg possibleActualValues
 export default (smallSqWidth: number, smallSqHeight: number, hiddenCells: number) : action_initialiseGrid => ({
   type: actionTypes.INITIALISE_GRID,
   grid: setHiddenCells(setActualValues(emptyGrid(smallSqWidth, smallSqHeight)), hiddenCells)

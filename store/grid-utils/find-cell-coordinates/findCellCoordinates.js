@@ -4,7 +4,7 @@ import type { Cell } from '../types.js'
 
 export default (grid: Cell[][], cellRef: Cell) : {rowIndex: number, colIndex: number} => {
 
-    // TODO: Could return a Map instead.
+    // ALTERNATIVE: Could return a Map instead.
 
     var colIndex : number = -1;
 

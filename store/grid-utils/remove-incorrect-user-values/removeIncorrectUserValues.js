@@ -4,6 +4,7 @@ import type { Cell } from '../types.js'
 
 export default (grid: Cell[][]) : Cell[][] => {
 
+    // ARCHITECTURE: Shallow copy.
     const g = [...grid]
 
     for (let rowIndex : number = 0, len = g.length; rowIndex < len; rowIndex++) {

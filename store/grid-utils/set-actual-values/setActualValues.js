@@ -10,7 +10,16 @@ import validCellValues from '../validCellValues.js'
 
 export default (grid: Cell[][]) : Cell[][] => {
 
-    // ALTERNATIVE: Could copy the 'grid' argument and return the copy, if wanting immutability.
+    /* TRANSLITERATION:
+     * Backtrack algorithm. A Cell's actualValue is a dead end if the next Cell cannot have a valid value.
+     * In this case, a different actualValue for the previous Cell must be generated.
+     * Backtrack example, showing the top two rows:
+     * 1 2 3  4 5 6  7 8 9
+     * 6 5 4  3 2 1  . . .
+     * Here, the next Cell cannot be assigned a value, as the actualValues 7, 8 and 9 exist within the same 3x3 square domain.
+     * The Cell with the actualValue '1' needs to have its actualValue reassigned, as the actualValue '1' is a dead end.
+     * Values 7, 8 and 9 will also be tried in that position, but ultimately several Cells will need to be backtracked in this case.
+     */
 
     let isBacktrack : boolean = false
 
@@ -38,11 +47,11 @@ export default (grid: Cell[][]) : Cell[][] => {
                 row[colIndex].possibleActualValues = new Set(validCellValues())
 
                 if (colIndex !== 0) {
-                    // If the current square is not at the end of its row, jump back to the previous square.
+                    // TRANSLITERATION: If the current square is not at the end of its row, jump back to the previous square.
                     colIndex = colIndex - 2
                 } else {
 
-                    // Else, jump back to the last square on the previous row.
+                    // TRANSLITERATION: Else, jump back to the last square on the previous row.
                     rowIndex = rowIndex - 2
                     isBacktrack = true
                     continue rowLoop

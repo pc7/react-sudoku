@@ -1,5 +1,8 @@
 
 
+Rewrite 2014 Sudoku portfolio application using React
+-----------------------------------------------------
+
 [done] Create empty Redux store.
 
 [done] Create reducer to initialise the grid structure as a two-dimensional array of objects as a single property in the Redux store, with placeholder actualValues. Grid needs to be part of application state to avoid unnecessary and extensive re-rendering on grid initialisation with backtracking algorithm.
@@ -14,7 +17,7 @@
 
 [done] Implement a backtracking algorithm within the action creator to generate actualValues, instead of using placeholder numbers. The necessary impure randomisation means that this must be performed in an action creator, not the reducer.
 
-Move comments from original application where needed.
+[done] Move comments from original 2014 application where needed.
 
 [done] Randomly designate grid cells as hidden when grid is generated. Hidden cells have a 'userValue' property to hold the number that the user selects for the cell, and do not have their actualValue displayed in the user interface.
 

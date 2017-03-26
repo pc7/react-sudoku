@@ -40,4 +40,3 @@ export type action_gameWon = {
 export type action_gameReset = {
   type: actionTypes.GAME_RESET,
 }
-
