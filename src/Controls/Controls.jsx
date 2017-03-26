@@ -22,6 +22,7 @@ const Controls : Function = props => (
             handleClick={(e) => props.removeIncorrectUserValues(props.grid)}
             isDisabled={props.gameWon}
             />
+    <p>Hidden squares for next new game (use slider): {props.hiddenCells}</p>
     <Range min={1}
            max={(props.smallSqWidth * 3 * props.smallSqHeight * 3) - 1}
            step={1}
