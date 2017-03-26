@@ -1,0 +1,24 @@
+
+@import url('../App/palette.css');
+
+.cell {
+  width: 4.5rem;
+  height: 4.5rem;
+  border: var(--lightGridBorder, 1px solid grey);
+  vertical-align: middle;
+  text-align: center;
+}
+
+.cell:nth-of-type(3),
+.cell:nth-of-type(6),
+.cell:nth-of-type(9) {
+  border-right: var(--strongGridBorder, 2px solid grey);
+}
+
+.cell:nth-of-type(1) {
+  border-left: var(--strongGridBorder, 2px solid grey);
+}
+
+.revealed {
+  background-color: #e7e7e7;
+}

@@ -4,4 +4,6 @@
   --buttonEnabledBackground: #6dc227;
   --buttonHoverBackground: #77d42a;
   --buttonDisabledBackground: #bbb;
+  --strongGridBorder: 2px solid #000;
+  --lightGridBorder: 1px solid #ccc;
 }
