@@ -16,9 +16,10 @@ const Grid : Function = React.createClass({
     return (
       <table>
         <tbody>
-          {this.props.grid.map((row) => <Row key={this.props.grid.indexOf(row)} items={row} />)}
+          {this.props.grid.map((row) => <Row key={this.props.grid.indexOf(row)} items={row} gameWon={this.props.gameWon} />)}
         </tbody>
-      </table>)
+      </table>
+    )
   }
 })
 
@@ -29,7 +30,8 @@ Grid.propTypes = {
 }
 
 const mapStateToProps = (storeState: Object): Object => ({
-  grid: storeState.grid
+  grid: storeState.grid,
+  gameWon: storeState.gameWon
 })
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
