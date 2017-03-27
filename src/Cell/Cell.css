@@ -2,8 +2,8 @@
 @import url('../App/palette.css');
 
 .cell {
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border: var(--lightGridBorder, 1px solid grey);
   vertical-align: middle;
   text-align: center;
@@ -23,8 +23,18 @@
                 having the classname within the CellSelect component
                 and passing a prop for hover and game won status. */
 .cell:not(:hover) .cellSelect,
+.cell:hover:not(.revealed):not(.gameWon) .number,
 .cell.gameWon .cellSelect {
   display: none;
+}
+
+.cellSelect {
+  width: 3rem;
+  font-size: 1rem;
+}
+
+.number {
+  font-size: 1.4rem;
 }
 
 .revealed {

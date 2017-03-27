@@ -11,7 +11,7 @@ const Cell : Function = (props : {item: CellType, gameWon: boolean}) => (
         (!props.item.isHidden ? styles.revealed : '') + ' ' +
         (props.gameWon ? styles.gameWon : '')
       }>
-    {!props.item.isHidden ? props.item.actualValue : props.item.userValue}
+    <span className={styles.number}>{!props.item.isHidden ? props.item.actualValue : props.item.userValue}</span>
     {!props.item.isHidden ? null : <CellSelect className={styles.cellSelect} cellRef={props.item}/>}
   </td>
 )
