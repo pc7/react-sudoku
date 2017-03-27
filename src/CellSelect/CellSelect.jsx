@@ -56,7 +56,7 @@ const CellSelect : Function = React.createClass({
       this.props.grid,
       coordinates.rowIndex,
       coordinates.colIndex,
-      e.nativeEvent.target.value ? e.nativeEvent.target.value : null
+      e.nativeEvent.target.value ? Number(e.nativeEvent.target.value) : null
     )
   },
 
