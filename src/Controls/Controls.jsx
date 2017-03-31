@@ -8,6 +8,7 @@ import Range from '../presentational/Range/Range.jsx'
 
 import generateGrid from '../../store/action-creators/generateGrid.js'
 import removeIncorrectUserValues from '../../store/action-creators/removeIncorrectUserValues.js'
+import styles from './Controls.css'
 
 import gameReset from '../../store/action-creators/gameReset.js'
 import type { Cell } from '../../store/grid-utils/types.js'
@@ -22,14 +23,18 @@ const Controls : Function = props => (
             handleClick={(e) => props.removeIncorrectUserValues(props.grid)}
             isDisabled={props.gameWon}
             />
-    <p>Hidden squares for next new game (use slider): {props.hiddenCells}</p>
-    <Range min={1}
-           max={(props.smallSqWidth * 3 * props.smallSqHeight * 3) - 1}
-           step={1}
-           defaultValue={props.hiddenCells}
-           handleChange={(e) => props.setHiddenCells(Number(e.target.value))}
-           />
-    <span>{props.gameWon ? 'Game Won!' : ''}</span>
+    <div className={styles.controlsSegment}>
+      <span className={styles.gameText}>Hidden squares for next new game (use slider): {props.hiddenCells}</span>
+    </div>
+    <div className={styles.controlsSegment}>
+      <Range min={1}
+             max={(props.smallSqWidth * 3 * props.smallSqHeight * 3) - 1}
+             step={1}
+             defaultValue={props.hiddenCells}
+             handleChange={(e) => props.setHiddenCells(Number(e.target.value))}
+             />
+      <span className={styles.gameText + ' ' + styles.gameTextWon}>{props.gameWon ? 'Game Won!' : ''}</span>
+    </div>
   </section>
 )
 

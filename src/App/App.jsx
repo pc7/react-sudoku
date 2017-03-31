@@ -5,7 +5,6 @@ import Controls from '../Controls/Controls.jsx'
 import Grid from '../Grid/Grid.jsx'
 
 import styles from './App.css'
-import reset from './reset.css'
 
 const App : Function = React.createClass({
 

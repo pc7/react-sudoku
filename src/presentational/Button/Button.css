@@ -3,7 +3,7 @@
 
 .btn {
   padding: .4rem 1rem;
-  margin: 0 .5rem .5rem 0;
+  margin: 0 .5rem 1rem 0;
   border: 0;
   color: var(--buttonContent, #fff);
   background-color: var(--buttonEnabledBackground, green);
@@ -24,4 +24,16 @@
 
 .btn:disabled {
   background-color: var(--buttonDisabledBackground, grey);
+}
+
+@media (min-width: 600px) {
+  .btn {
+    font-size: 175%;
+  }
+}
+
+@media (max-width: 599px) {
+  .btn {
+    font-size: 225%;
+  }
 }

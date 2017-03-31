@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import styles from './Range.css'
 
 const Range : Function = (props : {
   min: number,
@@ -15,6 +16,7 @@ const Range : Function = (props : {
            step={props.step}
            defaultValue={props.defaultValue}
            onChange={props.handleChange}
+           className={styles.range}
            />
 )
 

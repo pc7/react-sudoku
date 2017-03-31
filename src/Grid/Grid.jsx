@@ -1,7 +1,9 @@
 // @flow
 
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+
+import styles from './Grid.css'
 import generateGrid from '../../store/action-creators/generateGrid.js'
 import Row from '../Row/Row.jsx'
 
@@ -14,7 +16,7 @@ const Grid : Function = React.createClass({
   render() {
 
     return (
-      <table>
+      <table className={styles.grid}>
         <tbody>
           {this.props.grid.map((row) => <Row key={this.props.grid.indexOf(row)} items={row} gameWon={this.props.gameWon} />)}
         </tbody>

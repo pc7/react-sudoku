@@ -1,0 +1,24 @@
+
+.controlsSegment {
+  margin: .5rem 0;
+}
+
+.gameText {
+  vertical-align: middle;
+}
+
+.gameTextWon {
+  margin-left: 1rem;
+}
+
+@media (min-width: 600px) {
+  .gameText {
+    font-size: 150%;
+  }
+}
+
+@media (max-width: 599px) {
+  .gameText {
+    font-size: 200%;
+  }
+}

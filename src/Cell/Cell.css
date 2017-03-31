@@ -2,8 +2,8 @@
 @import url('../App/palette.css');
 
 .cell {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border: var(--lightGridBorder, 1px solid grey);
   vertical-align: middle;
   text-align: center;
@@ -29,12 +29,11 @@
 }
 
 .cellSelect {
-  width: 3rem;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .number {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .revealed {
@@ -42,6 +41,17 @@
 }
 
 .cell:not(.revealed).gameWon {
-  /* TODO: change this colour */
-  background-color: grey;
+  background-color: #14b6ef;
+}
+
+@media (min-width: 600px) {
+  .cellSelect {
+    width: 4rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .cellSelect {
+    width: 2rem;
+  }
 }

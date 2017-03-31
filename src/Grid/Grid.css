@@ -1,0 +1,10 @@
+
+.grid {
+  border-collapse: collapse;
+}
+
+@media (max-width: 599px) {
+  .grid {
+    width: 90%;
+  }
+}
