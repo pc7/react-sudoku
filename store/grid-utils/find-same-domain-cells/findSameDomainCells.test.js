@@ -17,38 +17,14 @@ describe('finding cells in the same domain, ie same row, column and small square
         expect(sameDomainCells.has(grid[4][5])).toBe(false)
     })
 
-    test('cell [4,0] is included in same domain as sample cell [4,5]', () => {
+    const cellsInSameDomain = [[4,0], [4,8], [4,3], [0,5], [7,5], [5,3], [3,5]]
 
-        expect(sameDomainCells.has(grid[4][0])).toBe(true)
-    })
+    cellsInSameDomain.forEach(
+        (coordinates) => {
+            test('cell [' + coordinates[0] + ',' + coordinates[1] + '] is included in same domain as sample cell [4,5]', () => {
 
-    test('cell [4,8] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[4][8])).toBe(true)
-    })
-
-    test('cell [4,3] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[4][3])).toBe(true)
-    })
-
-    test('cell [0,5] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[0][5])).toBe(true)
-    })
-
-    test('cell [7,5] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[7][5])).toBe(true)
-    })
-
-    test('cell [5,3] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[5][3])).toBe(true)
-    })
-
-    test('cell [3,5] is included in same domain as sample cell [4,5]', () => {
-
-        expect(sameDomainCells.has(grid[3][5])).toBe(true)
-    })
+                expect(sameDomainCells.has(grid[coordinates[0]][coordinates[1]])).toBe(true)
+            })
+        }
+    )
 })
