@@ -1,14 +1,19 @@
-// @flow
 
 import emptyGrid from '../empty-grid/emptyGrid.js'
 import setActualValues from './setActualValues.js'
 
-export default () => {
+describe('grid with actualValues created', () => {
 
     const grid = setActualValues(emptyGrid(3, 3))
-
     const rowActualValues = grid[7].map((cell) => cell.actualValue)
 
-    console.assert((new Set([...rowActualValues]).size) === 9, "generated grid doesn't contain 9 different actualValues in 8th row")
-    console.assert(rowActualValues.reduce((total, value) => total + value) === 45, "setActualValues doesn't set 8th row actualValues to total 45")
-}
+    test('contains 9 different actualValues in 8th row', () => {
+
+        expect(new Set([...rowActualValues]).size).toBe(9)
+    })
+
+    test('sum of actualValues in 8th row is 45', () => {
+
+        expect(rowActualValues.reduce((total, value) => total + value)).toBe(45)
+    })
+})

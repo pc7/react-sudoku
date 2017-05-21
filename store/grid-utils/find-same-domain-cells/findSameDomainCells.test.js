@@ -1,24 +1,54 @@
-// @flow
 
 import emptyGrid from '../empty-grid/emptyGrid.js'
 import findSameDomainCells from './findSameDomainCells.js'
 
-export default () => {
+describe('finding cells in the same domain, ie same row, column and small square)', () => {
 
     const grid = emptyGrid(3, 3)
-
     const sameDomainCells = findSameDomainCells(grid, 4, 5)
 
-    console.assert(sameDomainCells.size === 20, "findSameDomainCells returns " + sameDomainCells.size + " cells")
+    test('sample cell has 20 cells in the same domain', () => {
 
-    console.assert(sameDomainCells.has(grid[4][0]), "findSameDomainCells doesn't include cell 4 0 in same row")
-    console.assert(sameDomainCells.has(grid[4][8]), "findSameDomainCells doesn't include cell 4 8 in same row")
-    console.assert(sameDomainCells.has(grid[4][3]), "findSameDomainCells doesn't include cell 4 3 in same row")
+        expect(sameDomainCells.size).toBe(20)
+    })
 
-    console.assert(sameDomainCells.has(grid[0][5]), "findSameDomainCells doesn't include cell 0 5 in same column")
-    console.assert(sameDomainCells.has(grid[7][5]), "findSameDomainCells doesn't include cell 7 5 in same column")
+    test('The results for cells in the same domain as cell [4,0] do not include itself', () => {
 
-    console.assert(sameDomainCells.has(grid[5][3]), "findSameDomainCells doesn't include cell 5 3 in same square")
+        expect(sameDomainCells.has(grid[4][0])).toBe(true)
+    })
 
-    console.assert(!sameDomainCells.has(grid[4][5]), "target cell is present within findSameDomainCells set")
-}
+    test('cell [4,0] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[4][0])).toBe(true)
+    })
+
+    test('cell [4,8] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[4][8])).toBe(true)
+    })
+
+    test('cell [4,3] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[4][3])).toBe(true)
+    })
+
+    test('cell [0,5] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[0][5])).toBe(true)
+    })
+
+    test('cell [7,5] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[7][5])).toBe(true)
+    })
+
+    test('cell [5,3] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[5][3])).toBe(true)
+    })
+
+    test('cell [3,5] is included in same domain as sample cell [4,5]', () => {
+
+        expect(sameDomainCells.has(grid[3][5])).toBe(true)
+    })
+})

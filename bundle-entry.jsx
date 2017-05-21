@@ -11,11 +11,6 @@ import gameWon from './store/reducers/gameWon.js'
 
 import App from './src/App/App.jsx'
 
-import unitTest from './unit-test-entry.js'
-
-// TODO: Remove this from bundling for live version.
-unitTest()
-
 ReactDOM.render(
   <Provider store={createStore(combineReducers({grid, gameWon}))}>
     <App />

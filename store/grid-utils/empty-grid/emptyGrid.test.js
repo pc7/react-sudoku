@@ -1,18 +1,27 @@
-// @flow
 
 import emptyGrid from './emptyGrid.js'
 
-export default () => {
+describe('3x3 generated grid', () => {
 
     const generatedGrid = emptyGrid(3, 3)
 
-    console.assert(generatedGrid.length === 9, "generated grid has 9 rows")
-    console.assert(generatedGrid[0].length === 9, "generated grid has 9 cols")
+    test('has row length of 9', () => {
 
-    console.assert((new Set(generatedGrid[0]).size === 9), "generated grid doesn't contain 9 different cells in first row")
+        expect(generatedGrid).toHaveLength(9)
+    })
 
-    generatedGrid[0].length = 3
-    generatedGrid[1].length = 3
-    generatedGrid[2].length = 3
-    console.assert((new Set([...generatedGrid[0], ...generatedGrid[1], ...generatedGrid[2]]).size) === 9, "generated grid doesn't contain 9 different cells in top left square")
-}
+    test('has column length of 9', () => {
+
+        expect(generatedGrid[0]).toHaveLength(9)
+    })
+
+    test('has 9 different object references in the first row, ie no duplicate references to the same object', () => {
+
+        expect(new Set(generatedGrid[0]).size).toBe(9)
+    })
+
+    test('has 9 different object references in the top left small square, ie no duplicate references to the same object', () => {
+
+        expect(new Set([...generatedGrid[0].slice(0, 3), ...generatedGrid[1].slice(0, 3), ...generatedGrid[2].slice(0, 3)]).size).toBe(9)
+    })
+})
