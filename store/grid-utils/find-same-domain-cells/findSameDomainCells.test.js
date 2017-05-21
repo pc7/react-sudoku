@@ -12,9 +12,9 @@ describe('finding cells in the same domain, ie same row, column and small square
         expect(sameDomainCells.size).toBe(20)
     })
 
-    test('The results for cells in the same domain as cell [4,0] do not include itself', () => {
+    test('The results for cells in the same domain as cell [4,5] do not include itself', () => {
 
-        expect(sameDomainCells.has(grid[4][0])).toBe(true)
+        expect(sameDomainCells.has(grid[4][5])).toBe(false)
     })
 
     test('cell [4,0] is included in same domain as sample cell [4,5]', () => {
