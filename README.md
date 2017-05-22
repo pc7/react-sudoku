@@ -2,7 +2,7 @@
 About
 -----
 
-Basic demonstration application using component-based development with React, application state management with Redux, type assertions with Flow, and modular CSS with PostCSS.
+Basic demonstration application using component-based development with React, application state management with Redux, type assertions with Flow, unit testing with Jest and modular CSS with PostCSS.
 
 Total development time was approximately 28 hours.
 
